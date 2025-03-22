@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-  });
+  }, {collection: "users"});
 
 userSchema.set('toJSON', {
   transform: (document, returnedObject) => {
