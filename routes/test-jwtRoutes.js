@@ -13,9 +13,6 @@ router.get('/sign-token', (req, res) => {
     res.json({token})
   });
   
-
-module.exports = router;
-
 router.post('/verify-token', (req, res) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
@@ -28,4 +25,4 @@ router.post('/verify-token', (req, res) => {
   }
 });
 
-  
+module.exports = router;
