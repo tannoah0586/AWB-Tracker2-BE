@@ -39,4 +39,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:awbId', async (req,res) => {
+    try {
+        const foundAwb = await Awb.findById(req.params.awbId);
+
+        if(!foundAwb){
+            throw new Error('Shipment not found.');
+        }
+        res.status(200).json(foundAwb);
+    } catch (error) {
+        if (res.statusCode === 404 ) {
+            res.json({ err:error.message });
+        } else {
+            res.status(500).json({ err:error.message });
+        }
+    }
+});
+
 module.exports = router;

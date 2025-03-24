@@ -3,8 +3,8 @@
 Project Goal: To create a PERN or MERN application that simulates OTM data, automates AWB monitoring for your assigned lanes, provides timely notifications, and offers a user-friendly dashboard for efficient tracking.
 Core Functionality:
 
-* Simulated OTM Data (PostgreSQL):
-    * Manually populate a PostgreSQL database with sample AWB data, mimicking OTM reports.
+* Simulated OTM Data (MongoDB):
+    * Manually populate a MOngoDB database with sample AWB data, mimicking OTM reports.
     * Include fields: awb_number, service_provider, origin, destination, lane, mode_of_transport, expected_delivery_date, status, last_updated.
     * Scheduled tasks will simulate OTM updates by randomly changing the status and last_updated fields, and checking for risk.
 
@@ -116,3 +116,7 @@ Key Simplifications:
 
 References:
 https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
+
+https://www.nodemailer.com/about/
+
+https://www.npmjs.com/package/node-cron 

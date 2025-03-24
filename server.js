@@ -5,10 +5,13 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const logger = require('morgan');
+
+//import Routes
 const testJwtRouter = require('./controllers/test-jwt');
-const authRouter = require('./controllers/auth');
-const userRouter = require('./controllers/users');
-const awbRouter = require('./controllers/awbs');
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+const awbRoutes = require('./routes/awbRoutes');
+// const savedAwbRouter = require('./controllers/savedAwb');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -20,13 +23,14 @@ app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
-// Routes go here
+// Mount routes
+app.use('/auth', authRoutes);
+app.use('/users',userRoutes);
+app.use('/test-jwt', testJwtRouter);
+app.use('/awbs', awbRoutes);
+// app.use('/savedAwb', savedAwbRouter)
 
 app.listen(4000, () => {
   console.log('The express app is ready!');
 });
 
-app.use('/auth', authRouter);
-app.use('/users',userRouter);
-app.use('/test-jwt', testJwtRouter);
-app.use('/awbs', awbRouter);
