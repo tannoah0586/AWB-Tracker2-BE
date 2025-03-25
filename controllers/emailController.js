@@ -70,7 +70,7 @@ async function sendSavedAwbsEmail(req, res) {
     let awbList = '';
     for (const savedAwb of savedAwbs) {
       //format the awb data into a string.
-      awbList += `AWB ID: ${savedAwb.awbId._id}, HAWB/HBL: ${savedAwb.awbId['HAWB/HBL']}, Status: ${savedAwb.awbId.Status}\n`;
+      awbList += `AWB ID: ${savedAwb.awbId._id}, HAWB/HBL: ${savedAwb.awbId['HAWB/HBL']}, PODStatus: ${savedAwb.awbId['Proof Of Delivery (POD)']}\n`;
     }
 
     const mailOptions = {
