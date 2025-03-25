@@ -17,8 +17,8 @@ async function saveAwb(req, res) {
     }
 
     const savedAwb = await SavedAwb.create({
-      userId: userId,
-      awbId: awbId,
+      userId: userId, //Reference to Foreign key 
+      awbId: awbId, // Reference to Foreign key
     });
 
     res.status(201).json(savedAwb);

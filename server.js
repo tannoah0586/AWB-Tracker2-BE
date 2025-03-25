@@ -12,6 +12,7 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const awbRoutes = require('./routes/awbRoutes');
 const savedAwbRoutes = require('./routes/savedAwbRoutes');
+const emailRoutes = require('./routes/emailRoutes')
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -28,7 +29,9 @@ app.use('/auth', authRoutes);
 app.use('/users',userRoutes);
 app.use('/test-jwt', testJwtRoutes);
 app.use('/awbs', awbRoutes);
-app.use('/savedawbs', savedAwbRoutes)
+app.use('/savedawbs', savedAwbRoutes);
+app.use('/email', emailRoutes);
+
 
 app.listen(4000, () => {
   console.log('The express app is ready!');
