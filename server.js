@@ -5,6 +5,14 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const logger = require('morgan');
+const cron = require('node-cron');
+
+cron.schedule('* * * * *', () => {
+  console.log('Running a scehduled test at Singapore timezone every min')
+}, {
+  scheduled: true,
+  timezone: "Singapore"
+});
 
 //import Routes
 const testJwtRoutes = require('./routes/test-jwtRoutes');

@@ -1,12 +1,12 @@
 const SavedAwb = require('../models/savedAwb');
-const Awb = require('../models/awb');
+const FreightData = require('../models/freightData');
 
 async function saveAwb(req, res) {
   try {
     const userId = req.user._id;
     const awbId = req.body.awbId;
 
-    const awb = await Awb.findById(awbId);
+    const awb = await FreightData.findById(awbId);
     if (!awb) {
       return res.status(400).json({ err: 'Invalid AWB ID.' });
     }

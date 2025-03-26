@@ -8,7 +8,7 @@ const savedAwbSchema = new mongoose.Schema({
     },
     awbId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Awb', // ref Awb Model
+        ref:'FreightData', // ref FreightData Model
         required: true,
     },
 }, { collection: 'savedAwb', timestamps: true })

@@ -1,7 +1,9 @@
 const nodemailer = require('nodemailer');
 const SavedAwb = require('../models/savedAwb');
 const User = require('../models/user');
-const Awb = require('../models/awb');
+const FreightData = require('../models/freightData');
+
+
 
 async function setupNodemailer() {
   try {
@@ -56,33 +58,43 @@ async function sendSavedAwbsEmail(req, res) {
 
     const user = await User.findById(userId);
 
-    if(!user){
-      return res.status(404).json({error: "User not found"});
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
     }
 
-    // Fetch saved AWBs for the user, and populate the awbId.
     const savedAwbs = await SavedAwb.find({ userId: userId }).populate('awbId');
 
     if (savedAwbs.length === 0) {
-      return res.status(404).json({message: "This user has no saved Awbs"});
+      return res.status(404).json({ message: 'This user has no saved Awbs' });
     }
 
     let awbList = '';
     for (const savedAwb of savedAwbs) {
-      //format the awb data into a string.
-      awbList += `AWB ID: ${savedAwb.awbId._id}, HAWB/HBL: ${savedAwb.awbId['HAWB/HBL']}, PODStatus: ${savedAwb.awbId['Proof Of Delivery (POD)']}\n`;
+      const hawbHbl = savedAwb.awbId['HAWB/HBL'];
+
+      // Find the corresponding data in Awb (freightData collection)
+      const freight = await FreightData.findOne({ 'HAWB/HBL': hawbHbl }); // Use FreightData model for referencing (mimic fetching from OTM server)
+
+      if (freight && savedAwb.awbId['Proof Of Delivery (POD)'] === "") {
+        awbList += `AWB ID: ${savedAwb.awbId._id}, HAWB/HBL: ${hawbHbl}, PODStatus: ${freight['Proof Of Delivery (POD)']}\n`;
+      }
     }
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: user.email,
-      subject: 'Your Saved AWBs',
-      text: `Here are your saved AWBs:\n${awbList}`,
-    };
+    if (awbList.length > 0) {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: user.email,  //retrieves user's email and sends them notification
+        subject: 'Your Saved AWBs with POD Status',
+        text: `Here are your saved AWBs with POD Status:\n${awbList}`,
+      };
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Saved AWBs email sent:', info.messageId);
-    res.status(200).json({ message: 'Saved AWBs email sent successfully.' });
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Saved AWBs email sent:', info.messageId);
+    } else {
+      console.log('No AWBs found with empty POD and matching FreightData.');
+    }
+
+    res.status(200).json({ message: 'Saved AWBs email processed successfully.' });
   } catch (error) {
     console.error('Error sending saved AWBs email:', error);
     res.status(500).json({ error: 'Failed to send saved AWBs email.' });

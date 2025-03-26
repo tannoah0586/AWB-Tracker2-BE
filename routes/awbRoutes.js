@@ -1,4 +1,4 @@
-const Awb = require('../models/awb.js');
+const FreightData = require('../models/freightData.js');
 const express = require('express');
 const router = express.Router();
 
@@ -24,8 +24,8 @@ router.get('/', async (req, res) => {
 
     const skip = (page - 1) * limit;
 
-    const allAwbs = await Awb.find(filter).skip(skip).limit(limit);
-    const totalAwbs = await Awb.countDocuments(filter); // Get total count for pagination info
+    const allAwbs = await FreightData.find(filter).skip(skip).limit(limit);
+    const totalAwbs = await FreightData.countDocuments(filter); // Get total count for pagination info
 
     res.status(200).json({
       awbs: allAwbs,
@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:awbId', async (req,res) => {
     try {
-        const foundAwb = await Awb.findById(req.params.awbId);
+        const foundAwb = await FreightData.findById(req.params.awbId);
 
         if(!foundAwb){
             throw new Error('Shipment not found.');

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const awbSchema = new mongoose.Schema({
+const freightDataSchema = new mongoose.Schema({
   "Transport Mode": { type: String, required: true, trim: true },
   "Direction": { type: String, required: true, trim: true },
   "ETD Date": { type: Date },
@@ -65,6 +65,6 @@ const awbSchema = new mongoose.Schema({
   "Proof Of Delivery (POD)": { type: String },
 }, {collection: 'freightData', timestamps: true });
 
-module.exports = mongoose.model('Awb', awbSchema);
+module.exports = mongoose.model('FreightData', freightDataSchema);
 
 
