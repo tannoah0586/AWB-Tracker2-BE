@@ -5,6 +5,8 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const logger = require('morgan');
+const port = process.env.PORT || 4000;
+
 
 // cron.schedule('* * * * *', () => {
 //   console.log('Running a scehduled test at Singapore timezone every min')
@@ -19,7 +21,7 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const awbRoutes = require('./routes/awbRoutes');
 const savedAwbRoutes = require('./routes/savedAwbRoutes');
-const emailRoutes = require('./routes/emailRoutes')
+const emailRoutes = require('./routes/emailRoutes');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -42,7 +44,7 @@ app.use('/savedawbs', savedAwbRoutes);
 app.use('/email', emailRoutes);
 
 
-app.listen(4000, () => {
-  console.log('The express app is ready!');
+app.listen(port, () => {
+  console.log(`The express app is ready on port ${port}!`);
 });
 
