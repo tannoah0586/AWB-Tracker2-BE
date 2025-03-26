@@ -68,11 +68,11 @@ async function sendSavedAwbsEmail(req, res) {
       return res.status(404).json({ message: 'This user has no saved Awbs' });
     }
 
-    let awbList = '';
+    let awbList = ''; // new string.. 
     for (const savedAwb of savedAwbs) {
       const hawbHbl = savedAwb.awbId['HAWB/HBL'];
 
-      // Find the corresponding data in Awb (freightData collection)
+      // Find the corresponding data in Frieghtdata (freightData collection)
       const freight = await FreightData.findOne({ 'HAWB/HBL': hawbHbl }); // Use FreightData model for referencing (mimic fetching from OTM server)
 
       if (freight && savedAwb.awbId['Proof Of Delivery (POD)'] === "") {

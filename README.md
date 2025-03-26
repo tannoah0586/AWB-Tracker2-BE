@@ -83,7 +83,7 @@ Backend (Node.js/Express.js):
 * Email: nodemailer.
 * Scheduled Tasks: node-cron will simulate OTM updates, perform risk assessments, and trigger email notifications.
 Frontend (React.js/TypeScript):
-* UI Library: Material-UI or Tailwind CSS (for simple, clean design).
+* UI Library: Material-UI or Tailwind CSS (for simple, clean design). // still deciding
 * State Management: Context API or React Hooks (for simplicity).
 * Routing: react-router-dom.
 * Form Handling: React Hook Form.

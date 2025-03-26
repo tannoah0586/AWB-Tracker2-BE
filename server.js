@@ -6,9 +6,14 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const logger = require('morgan');
 const port = process.env.PORT || 4000;
+const testJwtRoutes = require('./routes/test-jwtRoutes');
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+const awbRoutes = require('./routes/awbRoutes');
+const savedAwbRoutes = require('./routes/savedAwbRoutes');
+const emailRoutes = require('./routes/emailRoutes');
 
-
-// cron.schedule('* * * * *', () => {
+// cron.schedule('* * * * *', () => {   //testing 
 //   console.log('Running a scehduled test at Singapore timezone every min')
 // }, {
 //   scheduled: true,
@@ -16,12 +21,6 @@ const port = process.env.PORT || 4000;
 // });
 
 //import Routes
-const testJwtRoutes = require('./routes/test-jwtRoutes');
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const awbRoutes = require('./routes/awbRoutes');
-const savedAwbRoutes = require('./routes/savedAwbRoutes');
-const emailRoutes = require('./routes/emailRoutes');
 
 mongoose.connect(process.env.MONGODB_URI);
 
