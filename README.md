@@ -11,7 +11,6 @@ Core Functionality:
   - Scheduled tasks will simulate OTM updates by randomly changing the `status` and `last_updated` fields, and checking for risk.
   **Note:** The choice of MongoDB is intentional due to the anticipated frequent schema changes from company server APIs. Using a non-relational database like MongoDB provides greater flexibility in accommodating these changes.
 
-
 - **Lane Management:**
 
   - Allow users to select and save their assigned lanes.
@@ -120,6 +119,44 @@ Wireframes (Simplified):
    - Integration tests for data flow and notifications.
    - End-to-end tests for user workflows.
 5. **Deployment:** Deploy the application to a platform like vercel and render (done).
+## Backend API Planning (Postman Screenshots)
+
+![sign-JWT](images/sign-jwt.png)
+**Description:** Demonstrates the successful generation of a JSON Web Token (JWT) after user authentication.
+
+![verify-JWT](images/verify-token.png)
+**Description:** Shows the verification of a JWT, confirming its validity for authorized access to protected routes.
+
+![sign-up-user](images/signup.png)
+**Description:** Illustrates the successful creation of a new user account via the signup API endpoint.
+
+![sign-in-user](images/sign-in.png)
+**Description:** Displays the successful login of an existing user and the retrieval of an authentication token.
+
+![get-all-users](images/get-users.png)
+**Description:** Shows the retrieval of a list of all users from the database.
+
+![authorized-userId](images/authorized-UserId.png)
+**Description:** Demonstrates retrieving information for a specific user ID, ensuring authorization.
+
+![list-all-records](images/list-all-server-records.png)
+**Description:** Illustrates the retrieval of all records from the server's data source.
+
+![filter-conditions](images/filter-conditions.png)
+**Description:** Shows the application of filter conditions to the data retrieval endpoint.
+
+![pagination-with-filter-conditions](images/Pagination-with-filtering.png)
+**Description:** Demonstrates the implementation of pagination combined with filter conditions for data retrieval.
+
+![AWBdetail](images/AWBDetail.png)
+**Description:** Displays the details of a specific AWB (Air Waybill) record.
+
+![saving-awb-with-userId-as-foreignKey](images/saving-awb-with-userId-as-FK.png)
+**Description:** Shows the saving of an AWB record, using the user's ID as a foreign key for association.
+
+![successful-nodemailer-execution](images/successful-nodemailer-execution.png)
+**Description:** Demonstrates the successful execution of Nodemailer for sending email notifications.
+
 
 **References:**
     https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
