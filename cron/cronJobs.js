@@ -2,8 +2,8 @@ const cron = require('node-cron');
 const User = require('../models/user');
 const { sendSavedAwbsEmail } = require('../controllers/emailController');
 
-cron.schedule('20 19 * * 1-5', async ()=> {
-    console.log('Running scheduled job at 7.20 PM (Mon-Fri) at Singapore timezone...');
+cron.schedule('39 9 * * 1-7', async ()=> {
+    console.log('Running scheduled job at 9.39 am (Mon-Sun) at Singapore timezone...');
     try {
         const users = await User.find({});
         for (const user of users){
@@ -21,4 +21,4 @@ cron.schedule('20 19 * * 1-5', async ()=> {
     
 });
 
-console.log('Cron job scheduled for 7.20pm (mon to fri).');
+console.log('Cron job scheduled for 9.39am (mon to sun).');
