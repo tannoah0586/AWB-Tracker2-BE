@@ -18,6 +18,18 @@ router.get('/', async (req, res) => {
       filter["Transport Mode"] = req.query["Transport Mode"];
     }
 
+    if (req.query["Departure Country Name"]) {
+        filter["Departure Country Name"] = req.query["Departure Country Name"];
+    }
+
+    if(req.query["Destination Country"]) {
+        filter["Destination Country"] = req.query["Destination Country"];
+    }
+
+    if(req.query["Carrier"]){
+        filter["Carrier"] = req.query["Carrier"];
+    }
+
     if (req.query["Proof Of Delivery (POD)"] === "empty") {
       filter["Proof Of Delivery (POD)"] = { $in: [null, ""] };
     }
@@ -55,5 +67,10 @@ router.get('/:awbId', async (req,res) => {
         }
     }
 });
+
+// router.get('/dropdown-options', (req, res) => {
+//     res.status(200).json({ message: "Test route works!" });
+// });
+
 
 module.exports = router;

@@ -13,6 +13,7 @@ const awbRoutes = require('./routes/awbRoutes');
 const savedAwbRoutes = require('./routes/savedAwbRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 
+// const cron = require('node-cron');
 // cron.schedule('* * * * *', () => {   //testing 
 //   console.log('Running a scehduled test at Singapore timezone every min')
 // }, {
@@ -20,7 +21,7 @@ const emailRoutes = require('./routes/emailRoutes');
 //   timezone: "Singapore"
 // });
 
-//import Routes
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
