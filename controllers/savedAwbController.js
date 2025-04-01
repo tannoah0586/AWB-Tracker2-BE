@@ -1,5 +1,6 @@
 const SavedAwb = require('../models/savedAwb');
 const FreightData = require('../models/freightData');
+const savedAwb = require('../models/savedAwb');
 
 async function saveAwb(req, res) {
   try {
@@ -54,7 +55,35 @@ async function updateSavedAwb(req, res) {
   }
 }
 
+async function getUserSavedAwbs(req,res) {
+  try {
+    const userId = req.user._id;
+    const savedAwbs = await SavedAwb.find({ userId: userId}).populate('awbId');
+    res.json(savedAwbs);
+  } catch (error) {
+    res.status(500).json({ err: error.message});
+  }
+}
+
+async function deleteSavedAwbs(req,res) {
+  try {
+    const userId = req.user._id;
+    const savedAwbId = req.params.savedAwbId;
+    
+    const savedAwb = await SavedAwb.findOneAndDelete({ _id: savedAwbId, userId: userId });
+
+    if(!savedAwb) {
+      return res.status(404).json({ err: "saved AWB not found or unauhoritsed."});
+    }
+    res.status(204).send()
+    } catch (error) {
+      res.status(500).json({err:err.message});
+  }
+};
+
 module.exports = {
   saveAwb,
   updateSavedAwb,
+  getUserSavedAwbs,
+  deleteSavedAwbs,
 };
