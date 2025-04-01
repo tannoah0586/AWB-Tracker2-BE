@@ -5,14 +5,15 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const logger = require('morgan');
-// const port = process.env.PORT || 4000;
-const port = 4000;
+const port = process.env.PORT || 4000;
+// const port = 4000;
 const testJwtRoutes = require('./routes/test-jwtRoutes');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const awbRoutes = require('./routes/awbRoutes');
 const savedAwbRoutes = require('./routes/savedAwbRoutes');
 const emailRoutes = require('./routes/emailRoutes');
+const cronController = require('./controllers/cronController');
 
 // const cron = require('node-cron');
 // cron.schedule('* * * * *', () => {   //testing 
@@ -43,6 +44,8 @@ app.use('/test-jwt', testJwtRoutes);
 app.use('/awbs', awbRoutes);
 app.use('/savedawbs', savedAwbRoutes);
 app.use('/email', emailRoutes);
+app.post('/render-cron-trigger', cronController.runRenderCronJob);
+
 
 
 app.listen(port, () => {
