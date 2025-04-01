@@ -45,7 +45,7 @@ app.use('/awbs', awbRoutes);
 app.use('/savedawbs', savedAwbRoutes);
 app.use('/email', emailRoutes);
 
-app.post('/easycron-trigger', cronController.runEasyCronJob);
+app.get('/easycron-trigger', cronController.runEasyCronJob);
 
 
 
