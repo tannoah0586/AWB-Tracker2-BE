@@ -157,8 +157,8 @@ Wireframes (Simplified):
 ![successful-nodemailer-execution](images/successful-nodemailer-execution.png)
 **Description:** Demonstrates the successful execution of Nodemailer for sending email notifications.
 
-![successful-cronjob-with-nodemaier-execution](images/screenshot%20for%20Cron%20Job%20and%20nodemailer.jpeg)
-**Description:** demostrates the successful execution of cron and nodemailer for sedning email notificaitons according to users.
+![successful-cronjob-with-nodemaier-execution](images/screenshot-for-Cron%20Job-and-nodemailer.jpeg)
+**Description:** Demostrates the successful execution of cron and nodemailer for sedning email notificaitons according to users.
 
 
 **References:**
