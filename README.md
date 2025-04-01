@@ -157,6 +157,9 @@ Wireframes (Simplified):
 ![successful-nodemailer-execution](images/successful-nodemailer-execution.png)
 **Description:** Demonstrates the successful execution of Nodemailer for sending email notifications.
 
+![successful-cronjob-with-nodemaier-execution](images/screenshot%20for%20Cron%20Job%20and%20nodemailer.jpeg)
+**Description:** demostrates the successful execution of cron and nodemailer for sedning email notificaitons according to users.
+
 
 **References:**
     https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
