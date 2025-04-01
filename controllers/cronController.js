@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const { sendSavedAwbsEmail } = require('./emailController');
 
-async function runRenderCronJob(req,res) {
+async function runEasyCronJob(req,res) {
     console.log("render Cron trigger received");
     try {
         const users = await User.find({});
@@ -19,5 +19,5 @@ async function runRenderCronJob(req,res) {
 };
 
 module.exports = {
-    runRenderCronJob,    
+    runEasyCronJob,    
 };

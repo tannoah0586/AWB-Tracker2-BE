@@ -44,7 +44,8 @@ app.use('/test-jwt', testJwtRoutes);
 app.use('/awbs', awbRoutes);
 app.use('/savedawbs', savedAwbRoutes);
 app.use('/email', emailRoutes);
-app.post('/render-cron-trigger', cronController.runRenderCronJob);
+
+app.post('/easycron-trigger', cronController.runEasyCronJob);
 
 
 
