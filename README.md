@@ -157,9 +157,11 @@ Wireframes (Simplified):
 ![successful-nodemailer-execution](images/successful-nodemailer-execution.png)
 **Description:** Demonstrates the successful execution of Nodemailer for sending email notifications.
 
-![successful-cronjob-with-nodemaier-execution](images/screenshot-for-Cron%20Job-and-nodemailer.jpeg)
-**Description:** Demostrates the successful execution of cron and nodemailer for sedning email notificaitons according to users.
+![successful-cronjob-with-nodemailer-execution](images/screenshot-for-Cron-Job-and-nodemailer.jpeg)
+**Description:** Demostrates the successful execution of cron and nodemailer for sending email notificaitons according to users.
 
+![Get-request-show-User-savedAWBId](images/GET-saved-User-AWBs.png)
+**Description:** Postman testing to show successful return to frontend for a backend request of get all of the user's protected AWBs.
 
 **References:**
     https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/

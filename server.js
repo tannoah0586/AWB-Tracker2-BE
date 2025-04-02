@@ -13,7 +13,7 @@ const userRoutes = require('./routes/userRoutes');
 const awbRoutes = require('./routes/awbRoutes');
 const savedAwbRoutes = require('./routes/savedAwbRoutes');
 const emailRoutes = require('./routes/emailRoutes');
-const cronController = require('./controllers/cronController');
+// const cronController = require('./controllers/cronController');
 
 // const cron = require('node-cron');
 // cron.schedule('* * * * *', () => {   //testing 
@@ -45,7 +45,7 @@ app.use('/awbs', awbRoutes);
 app.use('/savedawbs', savedAwbRoutes);
 app.use('/email', emailRoutes);
 
-app.get('/cronitor-trigger', cronController.runEasyCronJob);
+// app.get('/cronitor-trigger', cronController.runEasyCronJob);
 
 
 
