@@ -1,6 +1,5 @@
 const SavedAwb = require('../models/savedAwb');
 const FreightData = require('../models/freightData');
-const savedAwb = require('../models/savedAwb');
 
 async function saveAwb(req, res) {
   try {
