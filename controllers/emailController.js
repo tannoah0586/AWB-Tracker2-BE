@@ -76,7 +76,7 @@ async function sendSavedAwbsEmail(req, res) {
       const freight = await FreightData.findOne({ 'HAWB/HBL': hawbHbl }); // Use FreightData model for referencing (mimic fetching from OTM server)
 
       if (freight && savedAwb.awbId['Proof Of Delivery (POD)'] === "") {
-        const message =  `These are your at risk shipments, please be aware.\n}` + `AWB ID: ${savedAwb.awbId._id}, HAWB/HBL: ${hawbHbl}, PODStatus: ${freight['Proof Of Delivery (POD)']}\n`;
+        const message =  `AWB ID: ${savedAwb.awbId._id}, HAWB/HBL: ${hawbHbl}, PODStatus: ${freight['Proof Of Delivery (POD)']}\n`;
         awbList += message;
       }
     }
@@ -85,7 +85,7 @@ async function sendSavedAwbsEmail(req, res) {
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: user.email,  //retrieves user's email and sends them notification
-        subject: 'Your Saved AWBs with POD Status',
+        subject: 'Your Saved AWBs with at risk Status, please be aware',
         text: `Here are your saved AWBs with POD Status:\n${awbList}`,
       };
 

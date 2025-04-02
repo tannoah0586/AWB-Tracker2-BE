@@ -26,6 +26,10 @@ router.get('/', async (req, res) => {
         filter["Destination Country"] = req.query["Destination Country"];
     }
 
+    if(req.query["Service Type"]) {
+        filter["Service Type"] = req.query["Service Type"];
+    }
+
     if(req.query["Carrier"]){
         filter["Carrier"] = req.query["Carrier"];
     }
