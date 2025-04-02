@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const emailController = require('../controllers/emailController');
+// const express = require('express');
+// const router = express.Router();
+// const emailController = require('../controllers/emailController');
 
-router.post('/saved-awbs', emailController.sendSavedAwbsEmail);
+// router.post('/saved-awbs', emailController.sendSavedAwbsEmail);
 
-module.exports =router;
+// module.exports =router;
