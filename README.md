@@ -163,6 +163,9 @@ Wireframes (Simplified):
 ![Get-request-show-User-savedAWBId](images/GET-saved-User-AWBs.png)
 **Description:** Postman testing to show successful return to frontend for a backend request of get all of the user's protected AWBs.
 
+![delete-request-user-savedAwbId](images/delete-savedawbid.png)
+**Description:** Postman showing successful 204 successful deletetion of user's savedAwbId.
+
 **References:**
 
     https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
