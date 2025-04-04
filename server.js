@@ -5,15 +5,15 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const logger = require('morgan');
-// const port = process.env.PORT || 4000;
-const port = 4000;
+const port = process.env.PORT || 4000;
+// const port = 4000;
 const testJwtRoutes = require('./routes/test-jwtRoutes');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const awbRoutes = require('./routes/awbRoutes');
 const savedAwbRoutes = require('./routes/savedAwbRoutes');
 // const emailRoutes = require('./routes/emailRoutes'); ==> going to use schduled nodemailer instead
-// const { scheduleEmailTask } = require('./sceduledJobs/scheduledJobs')
+const { scheduleEmailTask } = require('./sceduledJobs/scheduledJobs')
 
 // const cronController = require('./controllers/cronController');
 
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
-  // scheduleEmailTask();
+  scheduleEmailTask();
 });
 
 app.use(cors());
