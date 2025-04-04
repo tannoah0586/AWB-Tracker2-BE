@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const User = require('../models/user');
 const { sendSavedAwbsEmail } = require('../controllers/emailController');
 
-cron.schedule('45 10 * * 1-7', async ()=> {
+cron.schedule('11 17 * * 1-7', async ()=> {
     console.log('Running scheduled job at 10:45 am (Mon-Sun) at Singapore timezone...');
     try {
         const users = await User.find({});
@@ -22,3 +22,4 @@ cron.schedule('45 10 * * 1-7', async ()=> {
 });
 
 console.log('Cron job scheduled for 10:45  am (Mon-Sun).');
+

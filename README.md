@@ -94,8 +94,8 @@ Wireframes (Simplified):
 - **Email:** nodemailer.
 - **Scheduled Tasks:** node-cron will simulate OTM updates, perform risk assessments, and trigger email notifications.
   Frontend (React.js/TypeScript):
-- **UI Library:** Material-UI or Tailwind CSS (for simple, clean design). // still deciding
-- S**tate Management:** Context API or React Hooks (for simplicity).
+- **UI Library:** Material-UI or Tailwind CSS (for simple, clean design).
+- **State Management:** Context API or React Hooks (for simplicity).
 - **Routing:** react-router-dom.
 - **Form Handling:** React Hook Form.
 - **Data Tables:** react-table or Material-UI data tables.
@@ -175,3 +175,5 @@ Wireframes (Simplified):
     https://www.npmjs.com/package/node-cron
 
     https://render.com/docs/web-services#port-binding
+
+    https://fontawesome.com/kits/new
