@@ -166,6 +166,12 @@ Wireframes (Simplified):
 ![delete-request-user-savedAwbId](images/delete-savedawbid.png)
 **Description:** Postman showing successful 204 successful deletetion of user's savedAwbId.
 
+![employ-PAAS-Background-worker](images/employ-render-background-worker.png)
+**Description:** showing logs of sucessful implementation of PAAS background worker to keep server running to execute cron jobs
+
+![successful-cron-nodemailer-execution](images/successful-execution-of-cron-and-nodemailer.png)
+**Description:** logs of properly execution of cron-nodemailer
+
 **References:**
 
     https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/

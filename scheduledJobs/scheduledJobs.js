@@ -7,7 +7,7 @@ async function scheduleEmailTask() {
     for (const user of users) {
       await processSavedAwbsEmail(user._id);
     }
-    // setTimeout(scheduleEmailTask, 604800000 ); // number of milliseconds per week
+    setTimeout(scheduleEmailTask, 604800000 ); // number of milliseconds per week
   }
   
 module.exports = {

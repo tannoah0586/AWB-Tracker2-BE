@@ -29,14 +29,14 @@ mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
-  scheduleEmailTask();
+  // scheduleEmailTask();
 });
 
 app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
-require('./cron/cronJobs');
+// require('./cron/cronJobs');
 
 // Mount routes
 app.use('/auth', authRoutes);
