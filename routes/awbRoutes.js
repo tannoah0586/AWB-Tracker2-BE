@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const page = parseInt(req.query.page) || 1; // Default to page 1
     const limit = parseInt(req.query.limit) || 10; // Default to 10 items per page
 
-    const filter = {}; // Initialize filter object
+    const filter = {}; 
 
     // Add filter conditions based on query parameters
     if (req.query["Departure Port"]) {
